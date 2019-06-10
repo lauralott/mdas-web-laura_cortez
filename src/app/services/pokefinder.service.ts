@@ -12,7 +12,7 @@ export class PokefinderService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
-  pokeApiUrl = "http://localhost:8080/types";
+  pokeApiUrl = "http://localhost:8080/";
   //http://localhost:8080/types?name=pikachu
 
   constructor(private http: HttpClient) {}
@@ -33,8 +33,15 @@ export class PokefinderService {
   }
 
   getPokeTypes(pokename: string): Observable<any> {
-    console.log(`pokename: ${pokename}`);
-    const url = `${this.pokeApiUrl}?name=${pokename}`;
+    const url = `${this.pokeApiUrl}types?name=${pokename}`;
+    return this.http.get(url, this.httpOptions).pipe(
+      tap(results => 
+        console.log(results))
+     ,catchError(this.handleError));
+  }
+
+  getInfo(pokename: string): Observable<any> {
+    const url = `${this.pokeApiUrl}pokemon?name=${pokename}`;
     return this.http.get(url, this.httpOptions).pipe(
       tap(results => 
         console.log(results))

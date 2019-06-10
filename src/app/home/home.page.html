@@ -2,7 +2,7 @@
   <ion-toolbar background="primary">
     <ion-title primary class="title">
       <img alt="Poke API" height="40"   src="../../assets/logo_poke_api.png" >
-      Client
+      <b>Client</b>
     </ion-title>
 
   </ion-toolbar>
@@ -12,17 +12,23 @@
 <ion-content>
     <form  #form="ngForm" (ngSubmit)="catch(form)">
         <ion-item>
-            <ion-input  name="pokename" type="text" placeholder="Gotta cath 'em types:" ngModel required clearInput></ion-input>
+            <ion-input  name="pokename" type="text" placeholder="Gotta catch 'em types:" ngModel required clearInput></ion-input>
           </ion-item>
+          <div class="checkbtn">
+              <ion-label item-left>Get all info</ion-label>
+              <ion-checkbox class="check" name="catchAll" slot="start" (ionChange)="optionChanged()"></ion-checkbox>
+          </div>
           <div padding>
               <ion-button  size="large" type="submit" expand="block">Catch</ion-button>
             </div>
     </form>
-  
-    <ion-list >
+    <ion-list lines="none">
       <ion-item class="poketitle">
           <ion-input [(ngModel)]="pokename" [readonly]=true slot=start></ion-input>
       </ion-item>
+      <ion-item *ngIf="totalPokeFavs != undefined">
+          <p>Favorited: {{totalPokeFavs}}</p>
+        </ion-item>
       <ion-item>
         <ion-buttons slot="start" *ngFor="let t of pokeTypes">
             <ion-button ion-button small  color="white" 

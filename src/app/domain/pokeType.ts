@@ -1,5 +1,5 @@
-
 export class pokeType {
+    slot: number;
     name: string;
     color: string;
     colorMapper: Map<string, string> = new Map([
