@@ -23,9 +23,7 @@ export class pokeType {
         ['fairy', 'pink'],
     ]);
     public constructor(name: string) {
-        console.log(name);
         this.name = name;
         this.color = this.colorMapper.get(this.name);
-        console.log(this.color);
     }
 }

@@ -33,19 +33,20 @@ export class Tab1Page {
           console.log(`this list: ${list}, lenght: ${list.length}`);
           this.pokeTypes.push(new pokeType(pokemon.pokeTypes[list].name)); 
         }
-      });
+      },
+      err => alert(err));
     } else {
       this.pokeFinder.getPokeTypes(form.value.pokename).subscribe(types => {
         for (var type in types) {
           this.pokeTypes.push(new pokeType(types[type].name)); 
         }
         this.pokename = form.value.pokename;
-      });
+      },
+      err => alert(err));
     }
   }
 
   optionChanged(){
-    console.log(this.catchAll);
     this.catchAll = !this.catchAll;
   }
 
