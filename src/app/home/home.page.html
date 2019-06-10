@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Poke API Client
+    </ion-title>
+		<div class="wrapper">
+	  <div class="pokeball">
+	  </div>
+	</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item>Gotta cath em all!</ion-item>
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let t of pokeTypes">
+        {{t.name}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-content>
