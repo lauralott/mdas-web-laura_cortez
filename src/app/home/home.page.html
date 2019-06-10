@@ -1,22 +1,44 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Poke API Client
+  <ion-toolbar background="primary">
+    <ion-title primary class="title">
+      <img alt="Poke API" height="40"   src="../../assets/logo_poke_api.png" >
+      Client
     </ion-title>
-		<div class="wrapper">
-	  <div class="pokeball">
-	  </div>
-	</div>
+
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
-<ion-item>Gotta cath em all!</ion-item>
-  <ion-content>
-    <ion-list>
-      <button ion-item *ngFor="let t of pokeTypes">
-        {{t.name}}
-      </button>
+    <form  #form="ngForm" (ngSubmit)="catch(form)">
+        <ion-item>
+            <ion-input  name="pokename" type="text" placeholder="Gotta cath 'em types:" ngModel required clearInput></ion-input>
+          </ion-item>
+          <div padding>
+              <ion-button  size="large" type="submit" expand="block">Catch</ion-button>
+            </div>
+    </form>
+  
+    <ion-list >
+      <ion-item class="poketitle">
+          <ion-input [(ngModel)]="pokename" [readonly]=true slot=start></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-buttons slot="start" *ngFor="let t of pokeTypes">
+            <ion-button ion-button small  color="white" 
+            [ngStyle]="{'background-color':t.color}">
+                {{t.name}}
+              </ion-button>
+        </ion-buttons>
+      </ion-item>
     </ion-list>
-  </ion-content>
+
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+      <div class="wrapper" center>
+          <div class="pokeball"></div>
+      </div>
+    <p class="footer" slot="end">Powered by: Laura Cortez</p>
+  </ion-toolbar>
+</ion-footer>
