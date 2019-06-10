@@ -4,4 +4,16 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+    <form  #form="ngForm" (ngSubmit)="favorite(form)">
+        <ion-item>
+            <ion-input  name="pokename" type="text" placeholder="name:" ngModel required clearInput></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input  name="userId" type="number" placeholder="userID:" ngModel required clearInput></ion-input>
+            </ion-item>
+          <div padding>
+              <ion-button  size="large" type="submit" expand="block">Favorite</ion-button>
+            </div>
+    </form>
+</ion-content>
