@@ -2,5 +2,5 @@
 ## PokeApi Client (FrontEnd)
 
 
-[[https://github.com/lauralott/mdas-web-laura_cortez/front.PNG]]
+[[https://github.com/lauralott/mdas-web-laura_cortez/blob/master/front.PNG]]
 
